@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:8000";
+const URL = import.meta.env.VITE_SERVER_URL;
 
 export const getDatas = async () => {
   const res = await axios.get(`${URL}/datas`);
