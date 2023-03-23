@@ -2,7 +2,6 @@ import Button from "@mui/material/Button";
 import { useState, useContext } from "react";
 import Addata from "./Addata";
 import { stateContext } from "../Context/context";
-import PopUp from "./PopUp";
 import { addRow, sendEmail } from "../service/api";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
