@@ -1,4 +1,4 @@
-import Button from "@mui/material/Button";
+import { Button, TextField } from "@mui/material";
 import { useState, useContext } from "react";
 import Addata from "./Addata";
 import { stateContext } from "../Context/context";
@@ -10,13 +10,14 @@ import "./Navbar.css";
 import { Plus } from "react-bootstrap-icons";
 import SendIcon from "@mui/icons-material/Send";
 import SendSharpIcon from "@mui/icons-material/SendSharp";
-import LoopIcon from '@mui/icons-material/Loop';
+import LoopIcon from "@mui/icons-material/Loop";
 
 const Navbar = () => {
   const [rows, setRows, rowSelectionModel, setRowSelectionModel] =
     useContext(stateContext);
   const [loadingData, setLoadingData] = useState(false);
-  const [isadddata, setIsaddData] = useState(false);
+
+  const [email, setEmail] = useState("info@redpositive.in");
   // const [isadddata,setIsaddData]=useState(false);
 
   return (
@@ -26,6 +27,28 @@ const Navbar = () => {
           <a className="navbar-brand">CRUDS</a>
           <div className="buttonouter">
             <Stack spacing={3} direction="row">
+              <TextField
+                sx={{
+                  "& .MuiInputLabel-root": { color: "white" },
+                  "& .MuiOutlinedInput-root": {
+                    "& > fieldset": { borderColor: "white" },
+                  },
+                  input: {
+                    color: "white",
+                  },
+                }}
+                id="standard-basic"
+                label="email"
+                variant="outlined"
+                color="success"
+                name="email"
+                required
+                placeholder="info@redpositive.in"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
               <Popup
                 className="popup-overlay ml-2 mr-3"
                 trigger={
@@ -54,7 +77,10 @@ const Navbar = () => {
                 color="success"
                 onClick={async (event) => {
                   setLoadingData(true);
-                  const msg = await sendEmail(rowSelectionModel);
+                  console.log(email);
+                  const idandmail={mail:email,rowSelectionModel}
+                  console.log(idandmail);
+                  const msg = await sendEmail(idandmail);
                   setLoadingData(false);
                   alert(msg);
 
@@ -67,7 +93,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <LoopIcon
-                  size={20}
+                    size={20}
                     sx={{
                       animation: "spin 2s linear infinite",
                       "@keyframes spin": {
