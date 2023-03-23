@@ -1,0 +1,12 @@
+.MuiDataGrid-columnHeaders{
+    background-color: rgb(46, 125, 50);
+    min-height: 100px !important;
+    font-size: larger;
+    font-family: system-ui;
+    font-weight: bolder !important;
+}
+
+.MuiDataGrid-row{
+    font-size: 18px;
+    font-family: serif;
+}
