@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = import.meta.env.VITE_SERVER_URL;
+const URL = 'https://fine-cyan-drill-ring.cyclic.app';
 
 export const getDatas = async () => {
   const res = await axios.get(`${URL}/datas`);
