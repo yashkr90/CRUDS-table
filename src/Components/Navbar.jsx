@@ -17,7 +17,7 @@ const Navbar = () => {
     useContext(stateContext);
   const [loadingData, setLoadingData] = useState(false);
 
-  const [email, setEmail] = useState("info@redpositive.in");
+  const [email, setEmail] = useState("");
   // const [isadddata,setIsaddData]=useState(false);
 
   return (
@@ -43,7 +43,7 @@ const Navbar = () => {
                 color="success"
                 name="email"
                 required
-                placeholder="info@redpositive.in"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
